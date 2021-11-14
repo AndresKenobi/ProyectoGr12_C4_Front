@@ -7,6 +7,7 @@ import { Login } from './components/Login';
 import { ConsultarReceta } from './components/ConsultarReceta';
 import { TablaRecetas } from './components/TablaRecetas';
 import { Registro } from './components/Registro';
+import { ComentarReceta } from './components/ComentarReceta';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <h2>SE PUSO REGISTRO ACA PROVISIONAL, DEBE IR EN OTRA PAGINA,
           VINCULADO AL NAVBAR DE ARRIBA, DESDE ROUTER</h2>
         <Registro />
+        <br />
+        <h2>PRUEBA COMENTAR RECETA</h2>
+        <ComentarReceta />
 
 
       </header>
