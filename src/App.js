@@ -8,6 +8,7 @@ import { ConsultarReceta } from './components/ConsultarReceta';
 import { TablaRecetas } from './components/TablaRecetas';
 import { Registro } from './components/Registro';
 import { ComentarReceta } from './components/ComentarReceta';
+import { ParrillaRecetas } from './components/ParrillaRecetas';
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
         <br />
         <h2>PRUEBA COMENTAR RECETA</h2>
         <ComentarReceta />
-
+        <br />
+        <h2>PRUEBA PARRILLA RECETAS</h2>
+        <ParrillaRecetas />
 
       </header>
     </div>
