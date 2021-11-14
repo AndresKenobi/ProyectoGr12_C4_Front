@@ -9,11 +9,25 @@ import { TablaRecetas } from './components/TablaRecetas';
 import { Registro } from './components/Registro';
 import { ComentarReceta } from './components/ComentarReceta';
 import { ParrillaRecetas } from './components/ParrillaRecetas';
+import { Routes, Route } from "react-router-dom";
+import AuthContext from './context/AuthContext';
+import { useContext } from "react";
 
 function App() {
+
+  // Variable para uso de contexto
+  const { auth } = useContext(AuthContext);
+
   return (
     <div className="App">
+      {/* TERNARIO VALIDACION LOGIN - sin usar completamente */}
+      {auth ? <h1>Usuario Autorizado</h1> : <h1>Usuario NO Autorizado</h1>}
       <header className="App-header">
+
+        <Routes>
+          <Route path="/registro" element={<Registro />}></Route>
+        </Routes>
+
         <BarraOpciones />
         <br />
         <br />
