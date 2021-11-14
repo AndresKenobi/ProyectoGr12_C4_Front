@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table'
 export const TablaRecetas = () => {
     return (
         <>
-            <h3>Somos el Recetario que Sasona el Mundo!</h3>
+            <h3>Somos el Recetario que Sasona el Mundo! Yeah</h3>
             <Table responsive>
                 <thead>
                     <tr>
