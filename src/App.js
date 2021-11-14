@@ -6,6 +6,7 @@ import { Carrusel } from './components/Carrusel';
 import { Login } from './components/Login';
 import { ConsultarReceta } from './components/ConsultarReceta';
 import { TablaRecetas } from './components/TablaRecetas';
+import { Registro } from './components/Registro';
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
         <ConsultarReceta />
         <br />
         <TablaRecetas />
+        <br />
+        <h2>SE PUSO REGISTRO ACA PROVISIONAL, DEBE IR EN OTRA PAGINA,
+          VINCULADO AL NAVBAR DE ARRIBA, DESDE ROUTER</h2>
+        <Registro />
 
 
       </header>
