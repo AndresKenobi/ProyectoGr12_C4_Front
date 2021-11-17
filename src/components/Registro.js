@@ -32,11 +32,7 @@ export const Registro = () => {
                         <Form.Label>Pais</Form.Label>
                         <Form.Control />
                     </Form.Group>
-
-
-
                 </Row>
-
                 <Button variant="primary" type="submit">
                     Registrarse
                 </Button>
