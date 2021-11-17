@@ -38,7 +38,7 @@ export const Registro = () => {
                 </Row>
 
                 <Button variant="primary" type="submit">
-                    Registrar
+                    Registrarse
                 </Button>
             </Form>
         </>
