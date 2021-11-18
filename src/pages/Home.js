@@ -6,8 +6,8 @@ import { ConsultarReceta } from '../components/ConsultarReceta';
 import { TablaRecetas } from '../components/TablaRecetas';
 import { ParrillaRecetas } from '../components/ParrillaRecetas';
 
-
 export const Home = () => {
+    
     return (
         <>
             <BarraOpciones />
@@ -25,7 +25,6 @@ export const Home = () => {
             <br />
             <h2>PRUEBA PARRILLA RECETAS</h2>
             <ParrillaRecetas />
-
         </>
     )
 }
