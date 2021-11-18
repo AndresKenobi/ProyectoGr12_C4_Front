@@ -7,6 +7,7 @@ import { Home } from '../pages/Home';
 import { Registrarse } from '../pages/Registrarse';
 import { SinAcceso } from '../pages/SinAcceso';
 import { Tusrecetas } from '../pages/Tusrecetas';
+import { Creacionreceta } from '../components/Creacionreceta';
 
 const AuthRouter = () => {
     return (
@@ -16,6 +17,7 @@ const AuthRouter = () => {
                 <Route path="/Registrarse" element={<Registrarse />}></Route>
                 <Route path="/SinAcceso" element={<SinAcceso />}></Route>
                 <Route path="/Tusrecetas" element={<Tusrecetas />}></Route>
+                <Route path="/Creacionreceta" element={<Creacionreceta />}></Route>
             </Routes>
         </>
     )

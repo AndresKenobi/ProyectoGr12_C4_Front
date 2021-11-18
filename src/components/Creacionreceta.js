@@ -1,14 +1,17 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import  {Form, Button, Row, Col, Table, Container, Image } from 'react-bootstrap'
+import { BarraOpciones } from '../components/BarraOpciones';
+//import Button from 'react-bootstrap/Button'
+//import Row from 'react-bootstrap/Row'
+/* import Col from 'react-bootstrap/Col'
 //import ButtonGroup from 'react-bootstrap/ButtonGroup'
 //import radios from 'react-bootstrap/Ratio'
 //import ToggleButton from 'react-bootstrap/ToggleButton'
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
+ */
+
 
 //import { Container } from 'react-bootstrap'
 //import InputGroup from 'react-bootstrap/InputGroup'
@@ -20,6 +23,10 @@ export const Creacionreceta = () => {
     return (
         <>
             <Form>
+            <BarraOpciones />
+            <br />
+            <br />
+            <br />
 
                 <Row className="mb-3">
                     <h2>
@@ -62,7 +69,8 @@ export const Creacionreceta = () => {
                 </Button>
                 <h2>
                 </h2>
-                <Table striped bordered hover size="sm">
+                <Table striped bordered hover size="sm"> 
+
                     <thead>
                         <tr>
                             <th>#</th>
