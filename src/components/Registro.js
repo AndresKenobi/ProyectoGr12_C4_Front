@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
@@ -6,7 +6,14 @@ import Col from 'react-bootstrap/Col'
 //import InputGroup from 'react-bootstrap/InputGroup'
 //import FormControl from 'react-bootstrap/FormControl'
 
+const objForm = {
+
+}
+
 export const Registro = () => {
+
+    const [form, setForm] = useState();
+
     return (
         <>
             <Form>
