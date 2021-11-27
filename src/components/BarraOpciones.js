@@ -14,7 +14,7 @@ export const BarraOpciones = () => {
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/Registrarse">Registrarse</Nav.Link>
-                            <Nav.Link href="#pricing">Tus recetas</Nav.Link>
+                            <Nav.Link href="/Tusrecetas">Tus recetas</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>
