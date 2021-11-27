@@ -7,6 +7,8 @@ export const Registrarse = () => {
     return (
         <div>
             <BarraOpciones />
+            <br />
+            <br /><br />
             <h2>Bienvenido al menu de registro</h2>
             <Registro />
             <br />
