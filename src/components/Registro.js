@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import AuthContext from '../context/AuthContext'
 //import InputGroup from 'react-bootstrap/InputGroup'
 //import FormControl from 'react-bootstrap/FormControl'
 
@@ -15,6 +16,7 @@ const objForm = {
 
 export const Registro = () => {
 
+    const { handleRegister } = useContext(AuthContext);
     const [form, setForm] = useState(objForm);
 
     const handleForm = (e) => {
@@ -24,8 +26,9 @@ export const Registro = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setForm(objForm);
+        e.preventDefault(); // evitar se recetee campos de texto
+        handleRegister(form); // pasamos formulario al contexto
+        setForm(objForm); // limpieza campos de texto despues de click registrar
     }
 
     return (

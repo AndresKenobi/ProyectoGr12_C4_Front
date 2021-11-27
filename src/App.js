@@ -14,8 +14,10 @@ function App() {
 
   return (
     <div className="App">
+
       {/* TERNARIO VALIDACION LOGIN - sin usar completamente */}
-      {auth ? <AuthRouter /> : <UnauthRouter />}
+      {/*auth ? <AuthRouter /> : <UnauthRouter />*/}{/*DESHABILITADO TEMPORALMENTE*/}
+      {<AuthRouter />}{/*SIN AUTENTICACION DEL TERNARIO*/}
       {/*<header className="App-header">
       </header>*/}
     </div>
