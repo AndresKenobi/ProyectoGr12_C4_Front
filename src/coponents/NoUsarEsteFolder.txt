@@ -1,0 +1,3 @@
+este forlder no usarlo.
+
+Este se llama "coponents" y el folder formal es "components"
