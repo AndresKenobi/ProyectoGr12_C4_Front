@@ -24,7 +24,11 @@ const AuthProvider = ({ children }) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(objUser)
-        });
+        }).then(resp => {
+            console.log(resp);
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
     const data = { handleRegister };
