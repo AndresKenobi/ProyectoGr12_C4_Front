@@ -26,7 +26,10 @@ export const ConsultarReceta = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // evitar se resetee campos de texto
-        handleConsultas(form); // pasamos formulario al contexto
+        const consulta = form.receta;
+        console.log("dato consulta:", form.receta);
+        handleConsultas(consulta);
+        //handleConsultas(form); // pasamos formulario al contexto
         setForm(objForm); // limpieza campos de texto despues de click registrar
     }
 
