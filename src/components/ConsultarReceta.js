@@ -3,8 +3,9 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+//import Row from 'react-bootstrap/Row'
+//import Col from 'react-bootstrap/Col'
+import RecipeContext from '../context/RecipeContext'
 
 const objForm = {
     receta: ""
@@ -13,7 +14,7 @@ const objForm = {
 
 export const ConsultarReceta = () => {
 
-
+    const { handleConsultas } = useContext(RecipeContext);
     const [form, setForm] = useState(objForm);
 
     const handleForm = (e) => {
@@ -25,7 +26,7 @@ export const ConsultarReceta = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // evitar se resetee campos de texto
-        //handleConsultarReceta(form); // pasamos formulario al contexto
+        handleConsultas(form); // pasamos formulario al contexto
         setForm(objForm); // limpieza campos de texto despues de click registrar
     }
 
@@ -40,16 +41,18 @@ export const ConsultarReceta = () => {
                     <FormControl
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
-                        required name="receta"
+                        required
+                        name="receta"
                         value={form.receta}
                         onChange={handleForm}
                         type="text"
                         placeholder="Busca tu receta"
                     />
                 </InputGroup>
+
                 {/*
                 <Form.Group className="mb-3" controlId="receta">
-                    <Form.Control required name="name" value={form.receta} onChange={handleForm} type="text" placeholder="Busca tu receta" />
+                    <Form.Control required name="receta" value={form.receta} onChange={handleForm} type="text" placeholder="Busca tu receta" />
                 </Form.Group>
                 */}
 
