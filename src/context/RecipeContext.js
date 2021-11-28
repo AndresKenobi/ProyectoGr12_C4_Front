@@ -3,13 +3,33 @@ import { createContext } from "react";
 
 const RecipeContext = createContext();
 
-const RecipeProvider = ({children})=>{
+const RecipeProvider = ({ children }) => {
 
-    const handleCreate = async (objProduct)=>{
+    const handleConsultas = async (objProduct) => {
+        console.log("Llamando a handleConsultas y los Autobots por una consulta de receta");
+        console.log("Se consiguio ->", objProduct);
+
+        // ATENTO AQUI. TOCA REVISAR LA DIRECCION PETICION DE BACK PANDAZA
+        fetch(`http://localhost:3000/api/recetas/${objProduct.receta}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(objProduct)
+        }).then(resp => {
+            console.log(resp);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    /*
+    const handleCreate = async (objProduct) => {
+
         const token = localStorage.getItem('token');
         const resp = await fetch("http://localhost:3000/api/recetas", {
             method: 'POST',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
             },
@@ -18,11 +38,13 @@ const RecipeProvider = ({children})=>{
 
         return resp;
     }
+    */
 
-    const data = {handleCreate};
+    //const data = { handleConsultas, handleCreate };
+    const data = { handleConsultas };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }
 
-export {RecipeProvider};
+export { RecipeProvider };
 export default RecipeContext;

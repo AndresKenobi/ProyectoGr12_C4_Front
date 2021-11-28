@@ -3,7 +3,7 @@ import { BarraOpciones } from '../components/BarraOpciones';
 import { Carrusel } from '../components/Carrusel';
 import { Login } from '../components/Login';
 import { ConsultarReceta } from '../components/ConsultarReceta';
-import { TablaRecetas } from '../components/TablaRecetas';
+//import { TablaRecetas } from '../components/TablaRecetas';
 import { ParrillaRecetas } from '../components/ParrillaRecetas';
 
 

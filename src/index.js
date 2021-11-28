@@ -5,11 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import { RecipeProvider } from "./context/RecipeContext";
 
 ReactDOM.render(
   <BrowserRouter>
     <AuthProvider>
-      <App />
+      <RecipeProvider>
+        <App />
+      </RecipeProvider>
     </AuthProvider>
   </BrowserRouter>,
   document.getElementById('root')
