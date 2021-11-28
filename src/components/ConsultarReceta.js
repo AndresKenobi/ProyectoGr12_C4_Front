@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import RecipeContext from '../context/RecipeContext'
 
 const objForm = {
-    receta: ""
+    nameReceta: ""
 }
 //const objForm ="";
 
@@ -26,10 +26,10 @@ export const ConsultarReceta = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); // evitar se resetee campos de texto
-        const consulta = form.receta;
-        console.log("dato consulta:", form.receta);
-        handleConsultas(consulta);
-        //handleConsultas(form); // pasamos formulario al contexto
+        //const consulta = form.receta;
+        console.log("dato consulta:", form.nameReceta);
+        //handleConsultas(consulta);
+        handleConsultas(form); // pasamos formulario al contexto
         setForm(objForm); // limpieza campos de texto despues de click registrar
     }
 
@@ -40,13 +40,13 @@ export const ConsultarReceta = () => {
 
 
                 <InputGroup className="mb-3">
-                    <InputGroup.Text id="receta">Consultas</InputGroup.Text>
+                    <InputGroup.Text id="nameReceta">Consultas</InputGroup.Text>
                     <FormControl
                         aria-label="Default"
                         aria-describedby="inputGroup-sizing-default"
                         required
-                        name="receta"
-                        value={form.receta}
+                        name="nameReceta"
+                        value={form.nameReceta}
                         onChange={handleForm}
                         type="text"
                         placeholder="Busca tu receta"
@@ -54,8 +54,8 @@ export const ConsultarReceta = () => {
                 </InputGroup>
 
                 {/*
-                <Form.Group className="mb-3" controlId="receta">
-                    <Form.Control required name="receta" value={form.receta} onChange={handleForm} type="text" placeholder="Busca tu receta" />
+                <Form.Group className="mb-3" controlId="nameReceta">
+                    <Form.Control required name="receta" value={form.nameReceta} onChange={handleForm} type="text" placeholder="Busca tu receta" />
                 </Form.Group>
                 */}
 

@@ -10,12 +10,12 @@ const RecipeProvider = ({ children }) => {
         console.log("Se consiguio ->", objProduct);
 
         // ATENTO AQUI. TOCA REVISAR LA DIRECCION PETICION DE BACK PANDAZA
-        fetch(`http://localhost:3000/api/recetas/${objProduct}`, {
+        fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(objProduct)
+            //body: JSON.stringify(objProduct) // CON GET NO USAR BODY DE DATOS
         }).then(resp => {
             console.log(resp);
         }).catch(error => {
