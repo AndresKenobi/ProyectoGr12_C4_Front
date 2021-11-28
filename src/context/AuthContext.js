@@ -6,12 +6,26 @@ const AuthProvider = ({ children }) => {
 
     /*
     const [auth, setAuth] = useState(true); // actualmente login quemado con "true"
-
-    const handleAuth = () => {
-        console.log("Llamando handleAuth del Contex...")
-    }
-    const data = { auth, handleAuth };
     */
+    const handleAuth = (objUser) => {
+        console.log("Llamando handleAuth del Contex...")
+        console.log("Se logio ->", objUser)
+
+        // ATENTO AQUI. TOCA REVISAR LA DIRECCION PETICION DE BACK PANDAZA
+        fetch("http://localhost:3000/api/usuarios/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(objUser)
+        }).then(resp => {
+            console.log(resp);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+    //const data = { auth, handleAuth };
+
 
     const handleRegister = (objUser) => {
         // confirmacion captura datos por parte del contexto
@@ -31,7 +45,7 @@ const AuthProvider = ({ children }) => {
         })
     }
 
-    const data = { handleRegister };
+    const data = { handleRegister, handleAuth };
 
 
 

@@ -26,7 +26,7 @@ export const Registro = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // evitar se recetee campos de texto
+        e.preventDefault(); // evitar se resetee campos de texto
         handleRegister(form); // pasamos formulario al contexto
         setForm(objForm); // limpieza campos de texto despues de click registrar
     }
@@ -62,7 +62,7 @@ export const Registro = () => {
                 </Row>*/}
 
 
-                
+
 
                 <Button variant="primary" type="submit">
                     Registrarse
