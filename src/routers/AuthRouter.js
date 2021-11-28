@@ -8,7 +8,7 @@ import { Registrarse } from '../pages/Registrarse';
 
 import { SinAcceso } from '../pages/SinAcceso';
 import { Tusrecetas } from '../pages/Tusrecetas';
-import { Creacionreceta } from '../components/Creacionreceta';
+import  Creacionreceta from '../components/Creacionreceta';
 
 
 const AuthRouter = () => {

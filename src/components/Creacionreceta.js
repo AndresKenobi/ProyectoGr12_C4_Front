@@ -1,100 +1,97 @@
-import React from 'react'
-import  {Form, Button, Row, Col, Table, Container, Image } from 'react-bootstrap'
-import { BarraOpciones } from '../components/BarraOpciones';
-//import Button from 'react-bootstrap/Button'
-//import Row from 'react-bootstrap/Row'
-/* import Col from 'react-bootstrap/Col'
-//import ButtonGroup from 'react-bootstrap/ButtonGroup'
-//import radios from 'react-bootstrap/Ratio'
-//import ToggleButton from 'react-bootstrap/ToggleButton'
-import Table from 'react-bootstrap/Table'
-import Container from 'react-bootstrap/Container'
-import Image from 'react-bootstrap/Image'
- */
+import React, { useContext, useState } from "react";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import RecipeContext from "../context/RecipeContext";
 
+const objForm = {
+  nameReceta: "",
+  photoReceta: "",
+  listaIngredientes: "",//objeto que almacena arreglos 
+  descReceta: "",
+};
 
-//import { Container } from 'react-bootstrap'
-//import InputGroup from 'react-bootstrap/InputGroup'
-//import FormControl from 'react-bootstrap/FormControl'
+const Creacionreceta = () => {
+    //Contextos
+    const {handleCreate} = useContext(RecipeContext);
+    //Estados
+  const [form, setForm] = useState(objForm);
 
-export const Creacionreceta = () => {
-    const [radioValue, setRadioValue] = React.useState("foo");
+  const handleForm = (e) => {
+      setForm( {...form, [e.target.name]: e.target.value});
+  };
 
-    return (
-        <>
-            <Form>
-            <BarraOpciones />
-            <br />
-            <br />
-            <br />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const resp = await handleCreate(form);
+    if(resp.status === 201){
+        alert('Created');
+        setForm(objForm);
+    }
+    
+  };
 
-                <Row className="mb-3">
-                    <h2>
-                    </h2>
-                    <Form.Group as={Col} controlId="formGridNombre">
-                        <Form.Label>Nombre Receta</Form.Label>
-                        <Form.Control type="Nombre" placeholder="Ingrese nombre" />
-                    </Form.Group>
-                    <h2>
-                    </h2>
-                    
-                    <Form.Group controlId="formFileSm" className="mb-3">
-                        <Form.Label>Imagen</Form.Label>
-                        <h2>
-                    </h2>
-                        <Container>
-                        <Row>
-                            <Col xs={1} md={4}>
-                                <Image src="https://visitcubago.com/wp-content/uploads/2021/06/arroz-con-pollo-y-maiz-foto-principal-banner-800x400.jpg?text=First slide&bg=373940" fluid />
-                            </Col>
-                        </Row>
-                    </Container>
-                    <h2>
-                    </h2>
-                        <Form.Control type="file" size="sm" />
-                    </Form.Group>
-                </Row>
-                <Row>
-                    <Col>
-                        <Form.Control placeholder="Ingrediente" />
-                    </Col>
-                    <Col>
-                        <Form.Control placeholder="Cantidad" />
-                    </Col>
-                </Row>
-                <h2>
-                </h2>
-                <Button variant="primary" type="submit">
-                    Agregar
-                </Button>
-                <h2>
-                </h2>
-                <Table striped bordered hover size="sm"> 
+  return (
+    <div>
+      <Form onSubmit={handleSubmit}>
+        {/********Fila 1*********/}
+        <Row>
+          {/********Columna 1*********/}
+          <Col>
+            <Form.Group className="mb-3" controlId="productName">
+              <Form.Label>Recipe name</Form.Label>
+              <Form.Control
+                name="nameReceta"
+                type="text"
+                placeholder="Recipe name"
+                required
+                value={form.nameReceta}
+                onChange={handleForm}
+              />
+            </Form.Group>
+          </Col>
+          {/********Columna 2*********/}
+          <Col>
+            <Form.Group className="mb-3" controlId="photoReceta">
+              <Form.Label>Product price</Form.Label>
+              <Form.Control
+                name="photoReceta"
+                type="text"
+                placeholder="url img recipe"
+                required
+                value={form.photoReceta}
+                onChange={handleForm}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        {/********Fila 2*********/}
+        <Row>
+        <Form.Group className="mb-3" controlId="listaIngredeintes">
+            <Form.Label>Descripcion de la receta</Form.Label>
+            <Form.Control as="textarea" rows={3} 
+                name="listaIngredeintes"
+                required
+                value={form.listaIngredeintes}
+                onChange={handleForm}/>
+            </Form.Group>  
+        </Row> 
+        {/********Fila 3*********/} 
+        <Row>  
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Descripcion de la receta</Form.Label>
+            <Form.Control as="textarea" rows={3} 
+                name="descReceta"
+                required
+                value={form.descReceta}
+                onChange={handleForm}/>
+            </Form.Group>
+        </Row>
+        {/**********Botón de registro********/}
+        <Button variant="success" type="submit">
+          Create
+        </Button>{" "}
+      </Form>
+    </div>
+  );
+};
 
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Ingrediente</th>
-                            <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                </Table>
-                <h2>
-                </h2>
-                <Button variant="primary" type="submit">
-                    Eliminar
-                </Button>
-                <h2>
-                </h2>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Indicaciones</Form.Label>
-                    <Form.Control as="textarea" rows={3} />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Guardar
-                </Button>
-            </Form>
-        </>
-    )
-}
+export default Creacionreceta;
