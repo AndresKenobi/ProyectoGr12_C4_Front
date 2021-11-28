@@ -20,10 +20,9 @@ export const Home = () => {
             <br />
             <ConsultarReceta />
             <br />
-            <TablaRecetas />
             <br />
+            <h2>PARRILLA DE RECETAS</h2>
             <br />
-            <h2>PRUEBA PARRILLA RECETAS</h2>
             <ParrillaRecetas />
 
         </>
