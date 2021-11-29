@@ -3,7 +3,7 @@ import { BarraOpciones } from '../components/BarraOpciones';
 //import { Creacionreceta } from '../components/Creacionreceta';
 import Button from 'react-bootstrap/Button';
 import { ParrillaRecetas } from '../components/ParrillaRecetas';
-import Creacionreceta from '../components/Creacionreceta';
+//import Creacionreceta from '../components/Creacionreceta';
 
 export const Tusrecetas = () => {
     return (
@@ -26,7 +26,7 @@ export const Tusrecetas = () => {
             <br/><br/>
 
             <Button href="/Creacionreceta">Crear Receta</Button>
-            <Creacionreceta/>
+            {/* <Creacionreceta/> */}
             
             <br />
         </div>
