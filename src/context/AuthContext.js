@@ -1,6 +1,7 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { apiLogin, apiRegister } from "./Api";
+import { useNavigate } from 'react-router';
 
 const AuthContext = createContext();
 
@@ -12,8 +13,14 @@ const AuthProvider = ({ children }) => {
     ESTADO PARA VERIFICAR SI UN USUARIO ESTA AUTENTICADO O NO......!!!
     */
     const [auth, setAuth] = useState(false); // actualmente login quemado con "true"
+    const navigate = useNavigate();
 
-    //const data = { auth, handleAuth };
+    useEffect(() => {
+        let token = localStorage.getItem("token");
+        if (token) {
+            setAuth(true);
+        }
+    }, [])
 
 
     /**************************************************** 
@@ -41,6 +48,8 @@ const AuthProvider = ({ children }) => {
                 // Guardar token en local storage (espacio en memoria navegador)
                 localStorage.setItem("token", token);
                 console.log("verifi LocalStorage: ", localStorage);
+                setAuth(true);
+                //navigate("/");
 
             } else {
                 console.log("NO se registro");
@@ -64,7 +73,11 @@ const AuthProvider = ({ children }) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(objUser)
-        })
+        });
+        if (resp.status === 200) {
+            setAuth(true);
+            //navigate("/");
+        }
         return resp;
 
     }
