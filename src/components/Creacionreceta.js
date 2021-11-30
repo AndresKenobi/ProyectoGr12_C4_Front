@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import RecipeContext from "../context/RecipeContext";
 
 const objForm = {
@@ -14,6 +14,8 @@ const Creacionreceta = () => {
     const {handleCreate} = useContext(RecipeContext);
     //Estados
   const [form, setForm] = useState(objForm);
+    //Alert
+  const [show, setShow] = useState(false);
 
   const handleForm = (e) => {
       setForm( {...form, [e.target.name]: e.target.value});
@@ -23,14 +25,20 @@ const Creacionreceta = () => {
     e.preventDefault();
     const resp = await handleCreate(form);
     if(resp.status === 201){
-        alert('Created');
+        //alert('Created');
+        setShow(true);//alarma activa cuando se crea la receta
         setForm(objForm);
+    }else{
+      setShow(false);
     }
     
   };
 
   return (
     <div>
+      <Alert variant="success" show={show}>
+        Receta creada con exito!
+      </Alert>
       <Form onSubmit={handleSubmit}>
         {/********Fila 1*********/}
         <Row>
@@ -51,7 +59,7 @@ const Creacionreceta = () => {
           {/********Columna 2*********/}
           <Col>
             <Form.Group className="mb-3" controlId="photoReceta">
-              <Form.Label>Product price</Form.Label>
+              <Form.Label>imagen url de la receta</Form.Label>
               <Form.Control
                 name="photoReceta"
                 type="text"
@@ -66,11 +74,11 @@ const Creacionreceta = () => {
         {/********Fila 2*********/}
         <Row>
         <Form.Group className="mb-3" controlId="listaIngredeintes">
-            <Form.Label>Descripcion de la receta</Form.Label>
+            <Form.Label>Lista de Ingredientes</Form.Label>
             <Form.Control as="textarea" rows={3} 
-                name="listaIngredeintes"
+                name="listaIngredientes"
                 required
-                value={form.listaIngredeintes}
+                value={form.listaIngredientes}
                 onChange={handleForm}/>
             </Form.Group>  
         </Row> 

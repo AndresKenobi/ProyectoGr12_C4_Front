@@ -2,8 +2,10 @@ import React from 'react'
 import { BarraOpciones } from '../components/BarraOpciones';
 //import { Creacionreceta } from '../components/Creacionreceta';
 import Button from 'react-bootstrap/Button';
+
 import { TablaRecetas } from '../components/TablaRecetas';
 import Creacionreceta from '../components/Creacionreceta';
+
 
 export const Tusrecetas = () => {
 
@@ -37,6 +39,7 @@ export const Tusrecetas = () => {
 
             <h3>---  Las recetas que has creado:  ---</h3>
             <TablaRecetas />
+
 
             <br />
         </div>

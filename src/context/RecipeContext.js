@@ -23,7 +23,7 @@ const RecipeProvider = ({ children }) => {
         })
     }
 
-    /*
+    
     const handleCreate = async (objProduct) => {
 
         const token = localStorage.getItem('token');
@@ -38,10 +38,10 @@ const RecipeProvider = ({ children }) => {
 
         return resp;
     }
-    */
+   
 
     //const data = { handleConsultas, handleCreate };
-    const data = { handleConsultas };
+    const data = { handleConsultas, handleCreate };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }
