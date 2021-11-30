@@ -9,8 +9,10 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
 
     /*
-    const [auth, setAuth] = useState(true); // actualmente login quemado con "true"
+    ESTADO PARA VERIFICAR SI UN USUARIO ESTA AUTENTICADO O NO......!!!
     */
+    const [auth, setAuth] = useState(false); // actualmente login quemado con "true"
+
     //const data = { auth, handleAuth };
 
 
@@ -72,7 +74,7 @@ const AuthProvider = ({ children }) => {
 
 
     //const data = { user, handleRegister, handleAuth, handleLogin };
-    const data = { handleRegister, handleLogin };
+    const data = { handleRegister, handleLogin, auth };
 
 
 

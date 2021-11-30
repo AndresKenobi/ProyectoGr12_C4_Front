@@ -16,7 +16,7 @@ export const ParrillaRecetas = () => {
 
     return (
         <>
-
+            <h3>Somos el Recetario que Sasona el Mundo!</h3>
             <Row>
                 <Col md={6} className="mb-2">
                     <Button onClick={toggleShowA} className="mb-2">

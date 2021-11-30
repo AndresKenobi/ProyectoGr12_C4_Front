@@ -8,13 +8,15 @@ import { AuthProvider } from "./context/AuthContext";
 import { RecipeProvider } from "./context/RecipeContext";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AuthProvider>
-      <RecipeProvider>
-        <App />
-      </RecipeProvider>
-    </AuthProvider>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <RecipeProvider>
+          <App />
+        </RecipeProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
