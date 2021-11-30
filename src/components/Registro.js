@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import AuthContext from '../context/AuthContext'
 //import InputGroup from 'react-bootstrap/InputGroup'
 //import FormControl from 'react-bootstrap/FormControl'
+import Alert from 'react-bootstrap/Alert'
 
 const objForm = {
     name: "",
@@ -18,6 +19,7 @@ export const Registro = () => {
 
     const { handleRegister } = useContext(AuthContext);
     const [form, setForm] = useState(objForm);
+    const [show, setShow] = useState(false); // ALERTA REGISTRO
 
     const handleForm = (e) => {
         // desempaqueta objeto y captura valores de campos de texto
@@ -28,6 +30,7 @@ export const Registro = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); // evitar se resetee campos de texto
         handleRegister(form); // pasamos formulario al contexto
+        setShow(true); //estado alerta REGISTRO
         setForm(objForm); // limpieza campos de texto despues de click registrar
     }
 
@@ -68,6 +71,11 @@ export const Registro = () => {
                     Registrarse
                 </Button>
             </Form>
+            <br />
+            <Alert variant="success" show={show}>
+                Pandita tus datos de registro han sido enviados!
+            </Alert>
+            <br />
         </>
     )
 }
