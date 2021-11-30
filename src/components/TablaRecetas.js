@@ -1,11 +1,12 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
-import { BarraOpciones } from '../components/BarraOpciones'
+//import { BarraOpciones } from '../components/BarraOpciones'
 
 export const TablaRecetas = () => {
     return (
         <>
-            <h3>Somos el Recetario que Sasona el Mundo!</h3>
+            <h5>Aqui estan tus creaciones:</h5>
+            <br />
             <Table responsive>
                 <thead>
                     <tr>
@@ -39,3 +40,5 @@ export const TablaRecetas = () => {
         </>
     )
 }
+
+
