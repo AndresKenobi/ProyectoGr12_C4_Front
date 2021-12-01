@@ -15,6 +15,7 @@ export const Tusrecetas = () => {
      * Product Card = OJO: Este componente debe hacerse ->
      *  1- El de Parrill Recetas a usarlo como un GET ALL para home
      *  2 - Tabla recetas usarlo para GETByID (con token de usuario)
+     *  3 - Se crea Product Card Componente independiente de quien lo invoque
      * **************************************************************************** */
     return (
         <div>

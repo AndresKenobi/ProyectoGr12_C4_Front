@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem("token", token);
                 console.log("verifi LocalStorage: ", localStorage);
                 setAuth(true);
-                //navigate("/");
+                navigate("/Tusrecetas");
 
             } else {
                 console.log("NO se registro");
@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
         });
         if (resp.status === 200) {
             setAuth(true);
-            //navigate("/");
+            navigate("/Tusrecetas");
         }
         return resp;
 
@@ -84,14 +84,16 @@ const AuthProvider = ({ children }) => {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("token:");
         setAuth(false);
+        navigate("/SinAcceso");
     }
 
 
 
 
-    //const data = { user, handleRegister, handleAuth, handleLogin };
     const data = { handleRegister, handleLogin, auth, handleLogout };
+    //const data = { handleRegister, handleLogin, auth };
 
 
 
