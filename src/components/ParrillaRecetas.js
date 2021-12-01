@@ -1,23 +1,52 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Toast from 'react-bootstrap/Toast'
 //import ToastContainer from 'react-bootstrap/ToastContainer'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useState } from 'react'
+import RecipeContext from '../context/RecipeContext';
+import { ProductCard } from './ProductCard'
 
 export const ParrillaRecetas = () => {
 
+    const { products } = useContext(RecipeContext)
+    /*
     const [showA, setShowA] = useState(true);
     const [showB, setShowB] = useState(true);
 
     const toggleShowA = () => setShowA(!showA);
     const toggleShowB = () => setShowB(!showB);
+    */
 
     return (
         <>
             <h3>Somos el Recetario que Sasona el Mundo!</h3>
-            <Row>
+
+            <h5>Disfruta de tu mejor opcion</h5>
+
+            {products.map((e) => <ProductCard
+                nameReceta={e.nameReceta}
+                photoReceta={e.photoReceta}
+
+                descReceta={e.descReceta}
+            />
+            )}
+            {/* listaIngredientes={e.listaIngredientes}
+            listaIngredientes={e.listaIngredientes.map(x=>)}
+            */}
+
+
+
+
+
+
+
+
+
+
+
+            {/*** <Row>
                 <Col md={6} className="mb-2">
                     <Button onClick={toggleShowA} className="mb-2">
                         Toggle Toast <strong>with</strong> Animation
@@ -53,6 +82,7 @@ export const ParrillaRecetas = () => {
                     </Toast>
                 </Col>
             </Row>
+            */}
 
         </>
     )

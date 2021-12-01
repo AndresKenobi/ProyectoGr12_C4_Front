@@ -1,10 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import { apiProduct } from "./Api";
 
 
 const RecipeContext = createContext();
 
 const RecipeProvider = ({ children }) => {
+
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        getProducts();
+    }, [])
 
     /***********************************************************************
      *                     SECCION  CONSULTAR RECETA
@@ -46,9 +53,33 @@ const RecipeProvider = ({ children }) => {
         return resp;
     }
 
+    /**********************************************************************
+         *               SECCION OBTENER RECETAS
+         * ************************************************************************* */
+
+    const getProducts = async () => {
+        const token = localStorage.getItem('token');
+        let resp = await fetch("http://localhost:3000/api/recetas", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (resp.status === 200) {
+            let json = await resp.json();
+            console.log("captura JSON recetas:", json)
+            setProducts(json);
+            console.log("Cambio estado Products:", products)
+
+
+        }
+        return resp.status;
+    }
 
     //const data = { handleConsultas, handleCreate };
-    const data = { handleConsultas, handleCreate };
+    const data = { handleConsultas, handleCreate, getProducts, products };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }
