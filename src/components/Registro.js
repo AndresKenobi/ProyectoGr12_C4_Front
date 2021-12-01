@@ -44,12 +44,12 @@ export const Registro = () => {
                 </Form.Group>
 
                 <Row className="mb-3">
-                    <Form.Group as={Col} controlId="email">
+                    <Form.Group as={Col} controlId="youremail">
                         <Form.Label>E-mail</Form.Label>
                         <Form.Control required name="email" value={form.email} onChange={handleForm} type="email" placeholder="Digite email" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="password">
+                    <Form.Group as={Col} controlId="yourpassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control required name="password" value={form.password} onChange={handleForm} type="password" placeholder="Password" />
                     </Form.Group>
