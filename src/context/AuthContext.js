@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem("token", token);
                 console.log("verifi LocalStorage: ", localStorage);
                 setAuth(true);
-                navigate("/");
+                //navigate("/");
 
             } else {
                 console.log("NO se registro");
@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
         });
         if (resp.status === 200) {
             setAuth(true);
-            navigate("/");
+            //navigate("/");
         }
         return resp;
 
