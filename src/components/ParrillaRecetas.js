@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import { useState } from 'react'
 import RecipeContext from '../context/RecipeContext';
 import { ProductCard } from './ProductCard'
+import "./Components.css"
 
 export const ParrillaRecetas = () => {
 
@@ -24,16 +25,21 @@ export const ParrillaRecetas = () => {
             <h3>Somos el Recetario que Sasona el Mundo!</h3>
 
             <h5>Disfruta de tu mejor opcion</h5>
+            <div className="contCard">
+                {products.map((e) => <ProductCard
+                    key={e._id}
+                    nameReceta={e.nameReceta}
+                    photoReceta={e.photoReceta}
 
-            {products.map((e) => <ProductCard
-                nameReceta={e.nameReceta}
-                photoReceta={e.photoReceta}
+                    descReceta={e.descReceta}
+                />
+                )}
 
-                descReceta={e.descReceta}
-            />
-            )}
+            </div>
             {/* listaIngredientes={e.listaIngredientes}
             listaIngredientes={e.listaIngredientes.map(x=>)}
+            listaIngredientes={(e.listaIngredientes).map((x) => <>{x.nameReceta}</>)}
+            listaIngredientes={(e.listaIngredientes).map((x) => <>{x.ingre}</>)}
             */}
 
 

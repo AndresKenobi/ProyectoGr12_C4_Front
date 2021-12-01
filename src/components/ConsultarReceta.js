@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button'
 //import Row from 'react-bootstrap/Row'
 //import Col from 'react-bootstrap/Col'
 import RecipeContext from '../context/RecipeContext'
+import { ProductCard } from './ProductCard'
+import "./Components.css"
 
 const objForm = {
     nameReceta: ""
@@ -16,6 +18,7 @@ export const ConsultarReceta = () => {
 
     const { handleConsultas } = useContext(RecipeContext);
     const [form, setForm] = useState(objForm);
+    const { busqueda } = useContext(RecipeContext)
 
     const handleForm = (e) => {
         // desempaqueta objeto y captura valores de campos de texto
@@ -67,6 +70,31 @@ export const ConsultarReceta = () => {
                 <br />
 
             </Form>
+            <div className="resultCard">
+                {(busqueda == []) ?
+
+                    <></>
+
+                    :
+
+                    <ProductCard
+                        key={busqueda._id}
+                        nameReceta={busqueda.nameReceta}
+                        photoReceta={busqueda.photoReceta}
+
+                        descReceta={busqueda.descReceta}
+                    />
+
+                }
+
+                {/*busqueda.map((e) => <ProductCard
+                    key={e._id}
+                    nameReceta={e.nameReceta}
+                    photoReceta={e.photoReceta}
+
+                    descReceta={e.descReceta}
+                />)*/}
+            </div>
         </>
     )
 }
