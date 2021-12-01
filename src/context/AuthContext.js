@@ -80,14 +80,18 @@ const AuthProvider = ({ children }) => {
         }
         return resp;
 
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setAuth(false);
     }
 
 
 
 
-
     //const data = { user, handleRegister, handleAuth, handleLogin };
-    const data = { handleRegister, handleLogin, auth };
+    const data = { handleRegister, handleLogin, auth, handleLogout };
 
 
 
