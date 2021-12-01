@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BarraOpciones } from '../components/BarraOpciones';
 //import { Creacionreceta } from '../components/Creacionreceta';
 import Button from 'react-bootstrap/Button';
 
 import { TablaRecetas } from '../components/TablaRecetas';
 import Creacionreceta from '../components/Creacionreceta';
+import RecipeContext from '../context/RecipeContext';
 
 
 export const Tusrecetas = () => {
@@ -17,6 +18,9 @@ export const Tusrecetas = () => {
      *  2 - Tabla recetas usarlo para GETByID (con token de usuario)
      *  3 - Se crea Product Card Componente independiente de quien lo invoque
      * **************************************************************************** */
+    const { products } = useContext(RecipeContext)
+
+
     return (
         <div>
             <BarraOpciones />
@@ -39,7 +43,15 @@ export const Tusrecetas = () => {
             <br />
 
             <h3>---  Las recetas que has creado:  ---</h3>
-            <TablaRecetas />
+            {/** 
+            {products.map((e) => <TablaRecetas
+                nameReceta={e.nameReceta}
+                photoReceta={e.photoReceta}
+                listaIngredientes={e.listaIngredientes}
+                descReceta={e.descReceta}
+            />
+            )}
+                */}
 
 
             <br />
