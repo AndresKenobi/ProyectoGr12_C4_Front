@@ -1,10 +1,14 @@
 import { createContext } from "react";
-//import { apiProduct } from "./Api";
+import { apiProduct } from "./Api";
+
 
 const RecipeContext = createContext();
 
 const RecipeProvider = ({ children }) => {
 
+    /***********************************************************************
+     *                     SECCION  CONSULTAR RECETA
+     **************************************************************************/
     const handleConsultas = async (objProduct) => {
         console.log("Llamando a handleConsultas y los Autobots por una consulta de receta");
         console.log("Se consiguio ->", objProduct);
@@ -23,11 +27,14 @@ const RecipeProvider = ({ children }) => {
         })
     }
 
-    
+
+    /**********************************************************************
+     *               SECCION CREAR RECETA
+     * ************************************************************************* */
     const handleCreate = async (objProduct) => {
 
         const token = localStorage.getItem('token');
-        const resp = await fetch("http://localhost:3000/api/recetas", {
+        const resp = await fetch(apiProduct, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +45,7 @@ const RecipeProvider = ({ children }) => {
 
         return resp;
     }
-   
+
 
     //const data = { handleConsultas, handleCreate };
     const data = { handleConsultas, handleCreate };
