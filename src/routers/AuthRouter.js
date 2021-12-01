@@ -20,7 +20,7 @@ const AuthRouter = () => {
                 <Route path="/Registrarse" element={<Registrarse />}></Route>
                 {/*<Route path="/SinAcceso" element={<SinAcceso />}></Route>*/}
                 <Route path="/Tusrecetas" element={<Tusrecetas />}></Route>
-                <Route path="/Creacionreceta" element={<Creacionreceta />}></Route>
+                {/*<Route path="/Creacionreceta" element={<Creacionreceta />}></Route>*/}
                 {/* ejemplo rutas profe 
                     <Route path="/" element={<Dashboard />}></Route>
                         <Route index element={<Product />}></Route> // ANIDADA

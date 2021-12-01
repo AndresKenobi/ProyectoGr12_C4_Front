@@ -5,13 +5,13 @@ import RecipeContext from "../context/RecipeContext";
 
 const ingredientes = {
   ingrediente: "",
-  cantidad: ""
+  cantidad: "",
 }
 
 const objForm = {
   nameReceta: "",
   photoReceta: "",
-  listaIngredientes: "",//objeto que almacena arreglos 
+  listaIngredientes: [],//objeto que almacena arreglos 
   descReceta: "",
 };
 
@@ -25,7 +25,7 @@ const Creacionreceta = () => {
   // Variable de estado ingredientes
   const [ingre, setIngre] = useState(ingredientes);
   //Lista ingredientes
-  const [lista, setlista] = useState([]);
+  const [lista, setlista] = useState(objForm.listaIngredientes);
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -33,6 +33,8 @@ const Creacionreceta = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setForm(form.listaIngredientes = lista)
+    console.log("revisar envio datos:", form)
     const resp = await handleCreate(form);
     if (resp.status === 201) {
       //alert('Created');
@@ -56,9 +58,6 @@ const Creacionreceta = () => {
     e.preventDefault(); // evitar se resetee campos de texto
     setlista([...lista, ingre])
     console.log("ingredientes:", lista)
-    console.log("rev ingre:", ingredientes.ingrediente)
-
-    //setShow(true); //estado alerta REGISTRO
     setIngre(ingredientes); // limpieza campos de texto despues de click registrar
   }
 
@@ -66,6 +65,8 @@ const Creacionreceta = () => {
     const newLista = lista.filter((index) => index.ingrediente !== ingrediente);
     setlista(newLista);
   }
+
+
 
   return (
     <div>
