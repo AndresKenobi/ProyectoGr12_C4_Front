@@ -1,0 +1,13 @@
+.contCard{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+} 
+
+.resultCard{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;   
+    
+}

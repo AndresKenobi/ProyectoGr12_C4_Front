@@ -8,6 +8,7 @@ const RecipeProvider = ({ children }) => {
 
 
     const [products, setProducts] = useState([]);
+    const [busqueda, setBusqueda] = useState([]);
 
     useEffect(() => {
         getProducts();
@@ -17,21 +18,38 @@ const RecipeProvider = ({ children }) => {
      *                     SECCION  CONSULTAR RECETA
      **************************************************************************/
     const handleConsultas = async (objProduct) => {
-        console.log("Llamando a handleConsultas y los Autobots por una consulta de receta");
+        console.log("Llamando a handleConsultas y los Autobots por budqueda receta");
         console.log("Se consiguio ->", objProduct);
 
         // ATENTO AQUI. TOCA REVISAR LA DIRECCION PETICION DE BACK PANDAZA
-        fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+        let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
             //body: JSON.stringify(objProduct) // CON GET NO USAR BODY DE DATOS
-        }).then(resp => {
+        })
+
+        if (resp.status === 200) {
+            let json = await resp.json();
+            console.log("JSON receta encontrada:", json)
+            setBusqueda(json);
+            console.log("Almacenamiento Busqueda:", busqueda)
+
+
+        }
+        return resp.status;
+        /*
+        .then(resp => {
             console.log(resp);
+            //if (resp.status === 200) {
+            let json = resp.json();
+            setBusqueda(json);
+            console.log("Busqueda:", busqueda)
+            //}
         }).catch(error => {
             console.log(error);
-        })
+        })*/
     }
 
 
@@ -49,6 +67,10 @@ const RecipeProvider = ({ children }) => {
             },
             body: JSON.stringify(objProduct)
         });
+
+        if (resp.status === 201) {
+            getProducts();
+        }
 
         return resp;
     }
@@ -79,7 +101,7 @@ const RecipeProvider = ({ children }) => {
     }
 
     //const data = { handleConsultas, handleCreate };
-    const data = { handleConsultas, handleCreate, getProducts, products };
+    const data = { handleConsultas, handleCreate, getProducts, products, busqueda };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }
