@@ -62,6 +62,11 @@ const Creacionreceta = () => {
     setIngre(ingredientes); // limpieza campos de texto despues de click registrar
   }
 
+  const handleRemoveIngrediente = (ingrediente) => {
+    const newLista = lista.filter((index) => index.ingrediente !== ingrediente);
+    setlista(newLista);
+  }
+
   return (
     <div>
       <Alert variant="success" show={show}>
@@ -151,9 +156,13 @@ const Creacionreceta = () => {
         <Container fluid >
           <h6>Tus ingredientes agregados:</h6>
           <ul>{lista.map((index) => (
-            <li key={index.cantidad}> Ingrediente: {index.ingrediente}  +     Cantidad: {index.cantidad} </li>
-          ))}</ul>
+            <>
+              <li onClick={() => handleRemoveIngrediente(index.ingrediente)} key={index.cantidad}>Ingrediente: {index.ingrediente} + Cantidad: {index.cantidad} </li>
+            </>
+          ))}
 
+
+          </ul>
         </Container>
 
 
