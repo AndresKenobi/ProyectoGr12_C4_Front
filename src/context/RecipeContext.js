@@ -100,8 +100,32 @@ const RecipeProvider = ({ children }) => {
         return resp.status;
     }
 
+    /**********************************************************************
+             *               SECCION ACTUALIZAR RECETAS
+             * ************************************************************************* */
+    const setProduct = async (objProduct) => {
+        const token = localStorage.getItem('token');
+        let resp = await fetch("http://localhost:3000/api/recetas", {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(objProduct)
+        });
+        console.log("testigo PUT:", objProduct)
+        console.log("devolucion PUT:", resp.json());
+
+        if (resp.status === 200) {
+            getProducts();
+        }
+
+        return resp.status
+    }
+
+
     //const data = { handleConsultas, handleCreate };
-    const data = { handleConsultas, handleCreate, getProducts, products, busqueda };
+    const data = { handleConsultas, handleCreate, getProducts, products, busqueda, setProduct };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }

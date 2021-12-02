@@ -32,7 +32,7 @@ export const ParrillaRecetas = () => {
                     nameReceta={e.nameReceta}
                     photoReceta={e.photoReceta}
                     descReceta={e.descReceta}
-
+                    _id={e._id}
 
                 />
                 )}
