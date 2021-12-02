@@ -6,7 +6,7 @@ import ProductFormModal from './ProductFormModal'
 //export const ProductCard = ({ nameReceta, photoReceta, listaIngredientes, descReceta }) => {
 export const ProductCard = ({ nameReceta, photoReceta, descReceta, _id }) => {
 
-    const { setProduct } = useContext(RecipeContext);
+    const { setProduct, deleteProduct } = useContext(RecipeContext);
     // ESTADOS DE PRODUCT CARD COMO PADRE DE PRODUCT FORM MODAL
     const [show, setShow] = useState(false);
 
@@ -15,6 +15,9 @@ export const ProductCard = ({ nameReceta, photoReceta, descReceta, _id }) => {
 
     const handleUpdate = (obj) => {
         setProduct(obj);
+    }
+    const handleDelete = () => {
+        deleteProduct(obj);
     }
 
     /*********************************************************
@@ -41,7 +44,8 @@ export const ProductCard = ({ nameReceta, photoReceta, descReceta, _id }) => {
                         :
                         <div>
                             <Button variant="primary" onClick={handleShow}>Editar</Button>
-                            <Button variant="danger">Eliminar</Button>
+                            &nbsp;
+                            <Button variant="danger" onClick={handleDelete}>Eliminar</Button>
                         </div>
                     }
                     {/*&nbsp;

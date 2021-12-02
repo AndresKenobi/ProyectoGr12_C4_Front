@@ -1,3 +1,4 @@
+import { Alert } from "bootstrap";
 import { createContext, useState, useEffect } from "react";
 import { apiProduct } from "./Api";
 
@@ -123,9 +124,29 @@ const RecipeProvider = ({ children }) => {
         return resp.status
     }
 
+    const deleteProduct = async (objProduct) => {
+        const token = localStorage.getItem('token');
+        let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (resp.status === 200) {
+            getProducts();
+            console.log('*******----->',resp.status)
+        }else{
+            Alert("Usuario no authorizado");
+        }
+        return resp.status;
+    }
+
 
     //const data = { handleConsultas, handleCreate };
-    const data = { handleConsultas, handleCreate, getProducts, products, busqueda, setProduct };
+    const data = { handleConsultas, handleCreate, getProducts,
+         products, busqueda, setProduct, deleteProduct };
 
     return <RecipeContext.Provider value={data}>{children}</RecipeContext.Provider>
 }
