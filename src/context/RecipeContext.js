@@ -105,7 +105,7 @@ const RecipeProvider = ({ children }) => {
              * ************************************************************************* */
     const setProduct = async (objProduct) => {
         const token = localStorage.getItem('token');
-        let resp = await fetch("http://localhost:3000/api/recetas", {
+        let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
