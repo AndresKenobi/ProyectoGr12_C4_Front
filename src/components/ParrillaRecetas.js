@@ -19,6 +19,7 @@ export const ParrillaRecetas = () => {
     const toggleShowA = () => setShowA(!showA);
     const toggleShowB = () => setShowB(!showB);
     */
+    console.log("products:", products);
 
     return (
         <>
@@ -30,8 +31,9 @@ export const ParrillaRecetas = () => {
                     key={e._id}
                     nameReceta={e.nameReceta}
                     photoReceta={e.photoReceta}
-
                     descReceta={e.descReceta}
+
+
                 />
                 )}
 
@@ -41,6 +43,16 @@ export const ParrillaRecetas = () => {
             listaIngredientes={(e.listaIngredientes).map((x) => <>{x.nameReceta}</>)}
             listaIngredientes={(e.listaIngredientes).map((x) => <>{x.ingre}</>)}
             */}
+
+            {/* PROPIEDADES ENVIADAS ANTES DE objProduct
+            nameReceta={e.nameReceta}
+                    photoReceta={e.photoReceta}
+
+                descReceta={e.descReceta}
+                
+                objProduct={e.nameReceta, e.photoReceta, e.descReceta}
+                
+                */}
 
 
 
