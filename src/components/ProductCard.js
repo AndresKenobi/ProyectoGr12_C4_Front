@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
+import RecipeContext from '../context/RecipeContext'
 import ProductFormModal from './ProductFormModal'
 
 //export const ProductCard = ({ nameReceta, photoReceta, listaIngredientes, descReceta }) => {
-export const ProductCard = ({ nameReceta, photoReceta, descReceta }) => {
+export const ProductCard = ({ nameReceta, photoReceta, descReceta, _id }) => {
+
+    const { setProduct } = useContext(RecipeContext);
     // ESTADOS DE PRODUCT CARD COMO PADRE DE PRODUCT FORM MODAL
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleUpdate = (obj) => {
+        setProduct(obj);
+    }
 
     /*********************************************************
      * VERIFICACIONES DE ENTRADA..........!!!!
@@ -27,6 +33,7 @@ export const ProductCard = ({ nameReceta, photoReceta, descReceta }) => {
                     <Card.Title>{nameReceta}</Card.Title>
                     <Card.Text>{/*objProduct.listaIngredientes*/}</Card.Text>
                     <Card.Text>{descReceta}</Card.Text>
+                    <Card.Text>{_id}</Card.Text>
 
                     {(nameReceta == "" || nameReceta == null || nameReceta == undefined) ?
 
@@ -48,7 +55,15 @@ export const ProductCard = ({ nameReceta, photoReceta, descReceta }) => {
             {/* <ProductFormModal /> 
             <ProductFormModal show={show} handleClose={handleClose} nameReceta={nameReceta} photoReceta={photoReceta} descReceta={descReceta} />
                 */}
-            <ProductFormModal show={show} handleClose={handleClose} nameReceta={nameReceta} photoReceta={photoReceta} descReceta={descReceta} />
+            <ProductFormModal
+                show={show}
+                handleClose={handleClose}
+                nameReceta={nameReceta}
+                photoReceta={photoReceta}
+                descReceta={descReceta}
+                _id={_id}
+                handleUpdate={handleUpdate}
+            />
         </>
 
     )

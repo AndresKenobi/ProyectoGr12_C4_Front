@@ -7,20 +7,35 @@ const objForm = {
     photoReceta: "",
     listaIngredientes: [],//objeto que almacena arreglos 
     descReceta: "",
-    _id: "",
+    id: "",
 };
 
 
-const ProductFormModal = ({ show, handleClose, nameReceta, photoReceta, descReceta }) => {
+const ProductFormModal = ({ show, handleClose, nameReceta, photoReceta, descReceta, _id, handleUpdate }) => {
 
     //Estados
     const [form, setForm] = useState(objForm);
 
+    const objProduct = { nameReceta, photoReceta, descReceta, _id }
+
+    /*
+        useEffect(() => {
+            setForm({
+                nameReceta: nameReceta,
+                photoReceta: photoReceta,
+                descReceta: descReceta,
+                id: _id
+            })
+    
+        }, [])
+        */
+
     useEffect(() => {
         setForm({
-            nameReceta: nameReceta,
-            photoReceta: photoReceta,
-            descReceta: descReceta
+            nameReceta: objProduct.nameReceta,
+            photoReceta: objProduct.photoReceta,
+            descReceta: objProduct.descReceta,
+            id: objProduct._id
         })
 
     }, [])
@@ -30,6 +45,12 @@ const ProductFormModal = ({ show, handleClose, nameReceta, photoReceta, descRece
     const handleForm = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
+
+    const handleEdit = () => {
+        handleUpdate(form);
+        setForm(objForm);
+        handleClose();
+    }
 
     return (
         <Modal show={show} onHide={handleClose}>
@@ -95,8 +116,8 @@ const ProductFormModal = ({ show, handleClose, nameReceta, photoReceta, descRece
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                <Button variant="primary" onClick={handleEdit}>
+                    Update
                 </Button>
             </Modal.Footer>
         </Modal>
