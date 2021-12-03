@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { RecipeProvider } from "./context/RecipeContext";
 
+
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
