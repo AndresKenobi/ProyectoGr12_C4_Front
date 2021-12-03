@@ -1,5 +1,5 @@
-//const server = "http://localhost:3000"; // VARIABLE PARA DESARROLLO EN LOCAL
-const server = "https://backend-pandaza2.herokuapp.com"; // VARIABLE AJUSTADA PARA DESPLIEGUE
+const server = "http://localhost:3000"; // VARIABLE PARA DESARROLLO EN LOCAL
+//const server = "https://backend-pandaza2.herokuapp.com"; // VARIABLE AJUSTADA PARA DESPLIEGUE
 
 const apiRegister = `${server}/api/usuarios`;
 const apiLogin = `${server}/api/usuarios/login`;
