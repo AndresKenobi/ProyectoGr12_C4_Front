@@ -22,7 +22,8 @@ const RecipeProvider = ({ children }) => {
         console.log("Se consiguio ->", objProduct);
 
         // ATENTO AQUI. TOCA REVISAR LA DIRECCION PETICION DE BACK PANDAZA
-        let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+        //let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+        let resp = await fetch(`${apiProduct}/${objProduct.nameReceta}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -81,7 +82,8 @@ const RecipeProvider = ({ children }) => {
 
     const getProducts = async () => {
         const token = localStorage.getItem('token');
-        let resp = await fetch("http://localhost:3000/api/recetas", {
+        //let resp = await fetch("http://localhost:3000/api/recetas", {
+        let resp = await fetch(apiProduct, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -105,7 +107,9 @@ const RecipeProvider = ({ children }) => {
              * ************************************************************************* */
     const setProduct = async (objProduct) => {
         const token = localStorage.getItem('token');
-        let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+
+        //let resp = await fetch(`http://localhost:3000/api/recetas/${objProduct.nameReceta}`, {
+        let resp = await fetch(`${apiProduct}/${objProduct.nameReceta}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
