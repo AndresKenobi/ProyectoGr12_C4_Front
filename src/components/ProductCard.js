@@ -17,7 +17,7 @@ export const ProductCard = ({ nameReceta, photoReceta, descReceta, _id }) => {
         setProduct(obj);
     }
     const handleDelete = () => {
-        deleteProduct(obj);
+        deleteProduct(); // Aca puso daza objeto
     }
 
     /*********************************************************
